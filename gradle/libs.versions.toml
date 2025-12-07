@@ -1,0 +1,49 @@
+###################################
+#      VERSÕES CENTRALIZADAS      #
+###################################
+[versions]
+java = "25"
+springboot = "4.0.0"
+dependencyManagement = "1.1.7"
+springdoc = "2.8.14"
+junit = "5.10.0"
+junitPlatform = "1.10.0"
+h2 = "2.2.224"
+netty-resolver-dns-native-macos = "4.1.108.Final"
+
+###################################
+#            PLUGINS              #
+###################################
+[plugins]
+springboot = { id = "org.springframework.boot", version.ref = "springboot" }
+dependency-management = { id = "io.spring.dependency-management", version.ref = "dependencyManagement" }
+java = { id = "java" }
+idea = { id = "idea" }
+
+###################################
+#            BIBLIOTECAS          #
+###################################
+[libraries]
+springboot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+springboot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
+springboot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+springboot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+springboot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+springdoc-webflux-ui = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui", version.ref = "springdoc" }
+
+springdoc-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+h2database = { module = "com.h2database:h2", version.ref = "h2" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform" }
+springboot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springboot" }
+netty-resolver-dns-native-macos = { module = "io.netty:netty-resolver-dns-native-macos", version.ref = "netty-resolver-dns-native-macos" }
+
+###################################
+#             BUNDLES             #
+###################################
+[bundles]
+springdoc-bundle = ["springdoc-webmvc-ui"]
+springdoc-webflux-bundle = ["springdoc-webflux-ui"]
+test-bundle = ["junit-jupiter"]

@@ -1,0 +1,30 @@
+plugins {
+    alias(libs.plugins.java)
+}
+
+group = 'com.tiago'
+version = '0.0.1'
+description = 'core-application'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get().toInteger())
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(projects.coreDomain)
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.jupiter
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.register("prepareKotlinBuildScriptModel"){}
