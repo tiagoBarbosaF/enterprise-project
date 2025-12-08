@@ -17,5 +17,6 @@ rootProject.name = 'enterprise-project'
 include(
         'core-domain',
         'core-application',
-        'core-infrastructure'
+        'core-infrastructure',
+        'product-service'
 )

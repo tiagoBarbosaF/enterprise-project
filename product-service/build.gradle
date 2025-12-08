@@ -1,0 +1,36 @@
+plugins {
+    alias(libs.plugins.java)
+    alias(libs.plugins.dependency.management)
+    alias(libs.plugins.springboot)
+}
+
+group = 'com.tiago'
+version = '0.0.1'
+description = 'product-service'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get().toInteger())
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation (projects.coreDomain)
+    implementation (projects.coreApplication)
+    implementation (projects.coreInfrastructure)
+
+    implementation(libs.springboot.starter)
+    implementation(libs.springboot.starter.web)
+    implementation(libs.springboot.starter.validation)
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.platform.launcher
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
