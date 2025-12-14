@@ -27,6 +27,8 @@ public class ProductController {
     @PostMapping
     public ProductResponse create(@Valid @RequestBody CreateProductRequest request) {
         Product product = createProductUseCase.execute(
+                request.toSkuVO(),
+                request.toTenantIdVO(),
                 request.name(),
                 request.toPriceVO()
         );

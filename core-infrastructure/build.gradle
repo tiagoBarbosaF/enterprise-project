@@ -17,8 +17,13 @@ repositories {
 }
 
 dependencies {
+    implementation(platform(libs.springboot.dependencies))
+
     implementation (projects.coreDomain)
     implementation (projects.coreApplication)
+
+    implementation(libs.springboot.starter.data.jpa)
+    implementation(libs.postgresql)
 
     testImplementation libs.junit.jupiter
     testRuntimeOnly libs.junit.jupiter

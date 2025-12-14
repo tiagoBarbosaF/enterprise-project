@@ -26,6 +26,9 @@ dependencies {
     implementation(libs.springboot.starter)
     implementation(libs.springboot.starter.web)
     implementation(libs.springboot.starter.validation)
+    implementation(libs.springboot.starter.data.jpa)
+
+    implementation(libs.postgresql)
 
     testImplementation libs.junit.jupiter
     testRuntimeOnly libs.junit.platform.launcher

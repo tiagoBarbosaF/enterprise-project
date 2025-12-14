@@ -2,9 +2,10 @@ package com.tiago.coreapplication.product;
 
 import com.tiago.coredomain.domain.product.Product;
 import com.tiago.coredomain.domain.product.ProductRepository;
+import com.tiago.coredomain.domain.product.exception.ProductAlreadyExistsException;
 import com.tiago.coredomain.domain.product.vo.Price;
-
-import java.util.UUID;
+import com.tiago.coredomain.domain.product.vo.Sku;
+import com.tiago.coredomain.domain.product.vo.TenantId;
 
 public class CreateProductUseCase {
     private final ProductRepository productRepository;
@@ -13,12 +14,15 @@ public class CreateProductUseCase {
         this.productRepository = productRepository;
     }
 
-    public Product execute(String name, Price price) {
-        Product product = new Product(
-                UUID.randomUUID().toString(),
-                name,
-                price
-        );
-        return productRepository.save(product);
+    public Product execute(Sku sku, TenantId tenantId, String name, Price price) {
+        productRepository.findBySkuAndTenantId(sku, tenantId)
+                .ifPresent(_ -> {
+                    throw new ProductAlreadyExistsException(sku.value(), tenantId.value());
+                });
+
+        Product product = Product.create(sku, tenantId, name, price);
+        productRepository.save(product);
+
+        return product;
     }
 }

@@ -27,6 +27,7 @@ idea = { id = "idea" }
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter" }
 springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 springboot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
+springboot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springboot" }
 springboot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
 springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 springboot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
@@ -35,6 +36,7 @@ springdoc-webflux-ui = { module = "org.springdoc:springdoc-openapi-starter-webfl
 
 springdoc-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
 h2database = { module = "com.h2database:h2", version.ref = "h2" }
+postgresql = { module = "org.postgresql:postgresql" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform" }
 springboot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springboot" }

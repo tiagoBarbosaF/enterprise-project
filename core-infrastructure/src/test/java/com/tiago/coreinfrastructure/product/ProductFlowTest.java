@@ -4,6 +4,8 @@ import com.tiago.coreapplication.product.CreateProductUseCase;
 import com.tiago.coreapplication.product.GetProductByIdUseCase;
 import com.tiago.coredomain.domain.product.Product;
 import com.tiago.coredomain.domain.product.vo.Price;
+import com.tiago.coredomain.domain.product.vo.Sku;
+import com.tiago.coredomain.domain.product.vo.TenantId;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +22,7 @@ public class ProductFlowTest {
         GetProductByIdUseCase getById = new GetProductByIdUseCase(repository);
 
         Price price = new Price(new BigDecimal("59.90"));
-        Product created = create.execute("Camiseta Polo", price);
+        Product created = create.execute(new Sku("123"), new TenantId("321"), "Camiseta Polo", price);
 
         assertNotNull(created.id());
         assertEquals("Camiseta Polo", created.name());
